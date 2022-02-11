@@ -13,7 +13,7 @@ const AppFilter = () => {
                 З/П больше 1000$
             </button>
         </div>
-    );
+    )
 }
 
 export default AppFilter;
