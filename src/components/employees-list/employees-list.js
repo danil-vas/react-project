@@ -1,10 +1,14 @@
 import './employees-list.css';
-import EmployeesListItem from '../employees-list-item/employees-lis-item';
+import EmployeesListItem from '../employees-list-item/employees-list-item';
 
-const EmployeesList = ({data}) => {
+const EmployeesList = ({data, deleteItem, onToggleProp}) => {
     const users = data.map(item => {
+        const {id, ...itemProps} = item;
         return (
-            <EmployeesListItem {...item}/>
+            <EmployeesListItem key={id}
+            {...itemProps}
+             deleteItem={() => deleteItem(id)}
+             onToggleProp={(e) => onToggleProp(id, e.currentTarget.getAttribute('data-toggle'))}/>
         )
     })
     return (
